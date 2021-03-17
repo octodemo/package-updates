@@ -17,6 +17,16 @@ jobs:
     runs-on: ubuntu-20.04
 
     steps:
+      - name: Display Context
+        uses: actions/github-script@v3
+        with:
+          script: |
+            core.startGroup('Context');
+            core.info(`Event: ${context.eventName}`);
+            core.info(`Payload:`);
+            core.info(JSON.stringify(context.payload, null, 2));
+            core.endGroup();
+            
       - name: Checkout
         uses: actions/checkout@v2
 
