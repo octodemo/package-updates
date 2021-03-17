@@ -3,7 +3,8 @@ name: Node.js - Build and Test - Dependabot
 on:
   pull_request_target:
     paths:
-       - nodejs/**
+       - nodejs/package.json
+       - nodejs/package-lock.json
 
 jobs:
   build_and_test:
