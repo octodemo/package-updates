@@ -21,7 +21,7 @@ jobs:
         with:
           script: |
             core.startGroup('Context');
-            core.info(`Event: %{context.eventName}`);
+            core.info(`Event: ${context.eventName}`);
             core.info(JSON.stringify(context.payload, null, 2));
             core.endGroup();
 
