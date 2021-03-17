@@ -16,7 +16,14 @@
             <id>github</id>
             <name>GitHub Packages Maven Repository</name>
             <url>https://maven.pkg.github.com/octodemo/java-private-library</url>
+            <snapshots><enabled>true</enabled></snapshots>
         </repository>
+
+        <!-- Maven Central Repo -->
+        <repository>
+            <id>central</id>
+            <url>https://repo1.maven.org/maven2</url>
+          </repository>
     </repositories>
 
     <dependencies>
