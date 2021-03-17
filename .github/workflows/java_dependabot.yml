@@ -37,7 +37,15 @@ jobs:
           server-id: github
           server-username: MAVEN_USERAME
           server-password: MAVEN_GHPR_PASSWORD
-                
+
+      - name: Show dependencies
+        env:
+          MAVEN_USERNAME: octodemobot
+          MAVEN_GHPR_PASSWORD: ${{ secrets.OCTODEMO_OCTODEMOBOT_TOKEN }}
+        working-directory: java
+        run: |
+          mvn -B dependency:tree --file pom.xml
+
       - name: Build with Maven
         env:
           MAVEN_USERNAME: octodemobot
