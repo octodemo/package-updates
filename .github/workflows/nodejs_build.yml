@@ -24,9 +24,10 @@ jobs:
         uses: actions/setup-node@v2
         with:
           node-version: '12.x'
-          registry-url: 'https://npm.pkg.github.com'
 
       - name: npm ci
+        env:
+          NODE_AUTH_TOKEN: ${{ secret.OCTODEMO_OCTODEMOBOT_GHPR_TOKEN }}
         working-directory: nodejs
         run: npm ci
 
