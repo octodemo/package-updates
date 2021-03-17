@@ -20,10 +20,8 @@ updates:
       - "java-private-library-maven"
     schedule:
       interval: daily
-    versioning-strategy: auto
 
   - package-ecosystem: npm
     directory: "/nodejs"
     schedule:
       interval: daily
-    versioning-strategy: auto
