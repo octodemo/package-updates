@@ -35,7 +35,21 @@ jobs:
           server-id: github
           server-username: MAVEN_USERAME
           server-password: MAVEN_GHPR_PASSWORD
-                
+      
+      # Utilize caching of the resolved plugins and dependencies from previous Maven builds to provide
+      # faster builds when dependencies have not changed.
+      - name: Cache Maven repository
+        uses: actions/cache@v2
+        with:
+          path: ~/.m2/repository
+          # Hash on the POM file as that would need to change to modify the dependencies or plugins in use
+          key: mvn-${{ matrix.java }}-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            mvn-${{ matrix.java }}-${{ runner.os }}-${{ hashFiles('**/pom.xml') }}
+            mvn-${{ matrix.java }}-${{ runner.os }}
+            mvn-${{ matrix.java }}
+            mvn-
+      
       - name: Show dependencies
         env:
           MAVEN_USERNAME: octodemobot
@@ -43,7 +57,7 @@ jobs:
         working-directory: java
         run: |
           mvn -B dependency:tree --file pom.xml
-          
+
       - name: Build with Maven
         env:
           MAVEN_USERNAME: octodemobot
