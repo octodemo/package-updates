@@ -41,6 +41,9 @@ jobs:
         working-directory: nodejs
         run: npm ci
 
+      - name: Show dependencies
+        run: npm list
+
       - name: npm test
         working-directory: nodejs
         run: npm test
