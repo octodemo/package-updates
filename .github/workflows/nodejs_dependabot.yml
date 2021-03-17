@@ -1,16 +1,14 @@
-name: Node.js - Build and Test
+name: Node.js - Build and Test - Dependabot
 
 on:
-  push:
-    branches-ignore:
-      - 'dependabot/**'
-    paths: 
-      - nodejs/**
-      - .github/workflows/nodejs_build.yml
+  pull_request_target:
+    paths:
+       - nodejs/**
 
 jobs:
   build_and_test:
     name: Build and Test
+    if: contains(github.event.pull_request.labels.*.name, 'dependencies') && contains(github.event.sender.login, 'dependabot')
 
     runs-on: ubuntu-20.04
 
@@ -27,6 +25,8 @@ jobs:
 
       - name: Checkout
         uses: actions/checkout@v2
+        with:
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v2
