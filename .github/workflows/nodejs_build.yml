@@ -4,6 +4,7 @@ on:
   push:
     paths: 
       - nodejs/**
+      - .github/workflows/nodejs_build.yml
 
   pull_request_target:
     paths:

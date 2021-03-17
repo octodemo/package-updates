@@ -4,6 +4,7 @@ on:
   push:
     paths: 
       - java/**
+      - .github/workflows/java_build.yml
 
   pull_request_target:
     paths: 
