@@ -16,6 +16,7 @@
             <id>github</id>
             <name>GitHub Packages Maven Repository</name>
             <url>https://maven.pkg.github.com/octodemo/java-private-library</url>
+            <releases><enabled>true</enabled></releases>
             <snapshots><enabled>true</enabled></snapshots>
         </repository>
 
