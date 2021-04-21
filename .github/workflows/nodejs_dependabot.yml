@@ -9,7 +9,7 @@ on:
 jobs:
   build_and_test:
     name: Build and Test
-    if: ${{ contains(github.event.pull_request.labels.*.name, 'dependencies') && github.event.sender.login == 'dependabot'}}
+    if: ${{ contains(github.event.pull_request.labels.*.name, 'dependencies') && github.event.sender.login == 'dependabot[bot]'}}
 
     runs-on: ubuntu-20.04
 
