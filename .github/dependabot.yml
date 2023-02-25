@@ -12,6 +12,13 @@ registries:
     type: npm-registry
     url: https://npm.pkg.github.com
     token: ${{ secrets.OCTODEMO_OCTODEMOBOT_GHPR_TOKEN }}
+    
+  artifactory:
+    type: python-index
+    url: https://pkgs.dev.artifactory.com/octocat/_packaging/my-feed/pypi/example
+    username: octocat
+    password: ${{ secrets.ARTIFACTORY_TOKEN }}
+    replaces-base: true
 
 updates:
   - package-ecosystem: maven
