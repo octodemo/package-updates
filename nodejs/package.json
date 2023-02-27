@@ -19,7 +19,7 @@
   "homepage": "https://github.com/octodemo/package-updates#readme",
   "dependencies": {
     "node-hue-api": "^4.0.2",
-    "@octodemo/nodejs-private-package": "^1.0.0",
+    "@octodemo/nodejs-private-package": "^1.1.0",
     "@peter-murray/simple-npm-lib": "1.0.0"
   }
 }
